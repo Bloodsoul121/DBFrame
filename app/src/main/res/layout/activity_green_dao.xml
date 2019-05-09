@@ -5,20 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.blood.dbframe.MainActivity">
+    tools:context="com.blood.dbframe.greendao.GreenDaoActivity">
 
     <Button
-        android:id="@+id/greendao"
+        android:id="@+id/insert"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="greendao"
-        android:textAllCaps="false" />
+        android:text="增" />
 
     <Button
-        android:id="@+id/dbflow"
+        android:id="@+id/delete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="dbflow"
-        android:textAllCaps="false" />
+        android:text="删" />
+
+    <Button
+        android:id="@+id/update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="改" />
+
+    <Button
+        android:id="@+id/query"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="查" />
 
 </LinearLayout>
