@@ -40,4 +40,5 @@ dependencies {
     implementation 'net.zetetic:android-database-sqlcipher:3.5.6' // 导入加密库文件
 //    implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
 //    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'com.github.Bloodsoul121:GithubCompile:1.0.0'
 }
