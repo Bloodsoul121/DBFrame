@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".greendao.GreenDaoActivity" />
-        <activity android:name=".dbflow.DBFlowActivity"></activity>
+        <activity android:name=".dbflow.DBFlowActivity" />
+        <activity android:name=".relam.RelamActivity"></activity>
     </application>
 
 </manifest>

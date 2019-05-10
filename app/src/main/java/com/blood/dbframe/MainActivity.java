@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.blood.dbframe.dbflow.DBFlowActivity;
 import com.blood.dbframe.greendao.GreenDaoActivity;
+import com.blood.dbframe.relam.RelamActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -19,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     Button mGreendao;
     @BindView(R.id.dbflow)
     Button mDbflow;
+    @BindView(R.id.relam)
+    Button mRelam;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.greendao, R.id.dbflow})
+    @OnClick({R.id.greendao, R.id.dbflow, R.id.relam})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.greendao:
@@ -35,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.dbflow:
                 startActivity(new Intent(this, DBFlowActivity.class));
+                break;
+            case R.id.relam:
+                startActivity(new Intent(this, RelamActivity.class));
                 break;
         }
     }
