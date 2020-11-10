@@ -25,8 +25,9 @@ public class UserDao extends AbstractDao<User, Long> {
      */
     public static class Properties {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
-        public final static Property Username = new Property(1, String.class, "username", false, "USERNAME");
-        public final static Property Nickname = new Property(2, String.class, "nickname", false, "NICKNAME");
+        public final static Property Name = new Property(1, String.class, "name", false, "NAME");
+        public final static Property Addr = new Property(2, String.class, "addr", false, "ADDRESS");
+        public final static Property Age = new Property(3, int.class, "age", false, "AGE");
     }
 
 
@@ -43,8 +44,9 @@ public class UserDao extends AbstractDao<User, Long> {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "\"USER\" (" + //
                 "\"_id\" INTEGER PRIMARY KEY ," + // 0: id
-                "\"USERNAME\" TEXT," + // 1: username
-                "\"NICKNAME\" TEXT);"); // 2: nickname
+                "\"NAME\" TEXT," + // 1: name
+                "\"ADDRESS\" TEXT," + // 2: addr
+                "\"AGE\" INTEGER NOT NULL );"); // 3: age
     }
 
     /** Drops the underlying database table. */
@@ -62,15 +64,16 @@ public class UserDao extends AbstractDao<User, Long> {
             stmt.bindLong(1, id);
         }
  
-        String username = entity.getUsername();
-        if (username != null) {
-            stmt.bindString(2, username);
+        String name = entity.getName();
+        if (name != null) {
+            stmt.bindString(2, name);
         }
  
-        String nickname = entity.getNickname();
-        if (nickname != null) {
-            stmt.bindString(3, nickname);
+        String addr = entity.getAddr();
+        if (addr != null) {
+            stmt.bindString(3, addr);
         }
+        stmt.bindLong(4, entity.getAge());
     }
 
     @Override
@@ -82,15 +85,16 @@ public class UserDao extends AbstractDao<User, Long> {
             stmt.bindLong(1, id);
         }
  
-        String username = entity.getUsername();
-        if (username != null) {
-            stmt.bindString(2, username);
+        String name = entity.getName();
+        if (name != null) {
+            stmt.bindString(2, name);
         }
  
-        String nickname = entity.getNickname();
-        if (nickname != null) {
-            stmt.bindString(3, nickname);
+        String addr = entity.getAddr();
+        if (addr != null) {
+            stmt.bindString(3, addr);
         }
+        stmt.bindLong(4, entity.getAge());
     }
 
     @Override
@@ -102,8 +106,9 @@ public class UserDao extends AbstractDao<User, Long> {
     public User readEntity(Cursor cursor, int offset) {
         User entity = new User( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
-            cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // username
-            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2) // nickname
+            cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // name
+            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // addr
+            cursor.getInt(offset + 3) // age
         );
         return entity;
     }
@@ -111,8 +116,9 @@ public class UserDao extends AbstractDao<User, Long> {
     @Override
     public void readEntity(Cursor cursor, User entity, int offset) {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
-        entity.setUsername(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
-        entity.setNickname(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
+        entity.setName(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
+        entity.setAddr(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
+        entity.setAge(cursor.getInt(offset + 3));
      }
     
     @Override

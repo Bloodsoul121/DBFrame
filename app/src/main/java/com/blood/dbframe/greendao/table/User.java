@@ -7,46 +7,83 @@ import org.greenrobot.greendao.annotation.Generated;
 
 @Entity
 public class User {
+
     @Id
     private Long id;
-    @Property(nameInDb = "USERNAME")
-    private String username;
-    @Property(nameInDb = "NICKNAME")
-    private String nickname;
-    @Generated(hash = 523935516)
-    public User(Long id, String username, String nickname) {
-        this.id = id;
-        this.username = username;
-        this.nickname = nickname;
-    }
-    @Generated(hash = 586692638)
+
+    @Property(nameInDb = "NAME")
+    private String name;
+
+    @Property(nameInDb = "ADDRESS")
+    private String addr;
+
+//    @Property
+//    private String address;
+
+    @Property
+    private int age;
+
+//    @Property
+//    private int phone;
+
     public User() {
     }
-    public Long getId() {
-        return this.id;
-    }
-    public void setId(Long id) {
+
+    @Generated(hash = 1663452608)
+    public User(Long id, String name, String addr, int age) {
         this.id = id;
-    }
-    public String getUsername() {
-        return this.username;
-    }
-    public void setUsername(String username) {
-        this.username = username;
-    }
-    public String getNickname() {
-        return this.nickname;
-    }
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+        this.name = name;
+        this.addr = addr;
+        this.age = age;
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", username='" + username + '\'' +
-                ", nickname='" + nickname + '\'' +
+                ", name='" + name + '\'' +
+                ", addr='" + addr + '\'' +
+                ", age=" + age +
                 '}';
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return this.addr;
+    }
+
+    public void setAddress(String address) {
+        this.addr = address;
+    }
+
+    public int getAge() {
+        return this.age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getAddr() {
+        return this.addr;
+    }
+
+    public void setAddr(String addr) {
+        this.addr = addr;
     }
 }

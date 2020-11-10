@@ -2,9 +2,10 @@ package com.blood.dbframe;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.blood.dbframe.dbflow.DBFlowActivity;
 import com.blood.dbframe.greendao.GreenDaoActivity;
@@ -28,9 +29,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        startActivity(new Intent(this, GreenDaoActivity.class));
     }
 
-    @OnClick({R.id.greendao, R.id.dbflow, R.id.relam})
+    @OnClick({R.id.greendao, R.id.dbflow, R.id.relam, R.id.data_store})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.greendao:
@@ -41,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.relam:
                 startActivity(new Intent(this, RelamActivity.class));
+                break;
+            case R.id.data_store:
+                startActivity(new Intent(this, DataStoreActivity.class));
                 break;
         }
     }
