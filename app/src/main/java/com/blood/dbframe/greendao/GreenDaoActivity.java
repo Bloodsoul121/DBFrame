@@ -75,6 +75,8 @@ public class GreenDaoActivity extends AppCompatActivity {
 
         // 会话
         mDaoSession = daoMaster.newSession();
+
+        // greendao只是做个封装，提供api操作，底层还是交给AbstractDao处理，拼接sql语句，交给db处理
     }
 
     private void initTable() {
